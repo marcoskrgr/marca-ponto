@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        height: 90vh;
+        width: 100%;
+    }
+
+    header {
+        background-color: #0096c7;
+        color: #fff;
+        text-align: center;
+    }
+
+    footer {
+        background-color: #ccc;
+        color: #333;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        height: 50px;
+    }
+
+    main {
+        height: 80vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TESTE</h1>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; marcaaqui</p>
+  </footer>
+</body>
+</html>

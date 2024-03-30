@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Marcar Ponto</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ ponto_form.as_p }}
+        <button type="submit">Marcar</button>
+    </form>
+{% endblock %}

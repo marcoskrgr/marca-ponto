@@ -21,8 +21,8 @@ class dColaboradores(models.Model):
 class fPonto(models.Model):
     id = models.AutoField(primary_key=True)
     idColaborador = models.ForeignKey(dColaboradores, on_delete=models.CASCADE, related_name='ponto_colaborador')
-    data = models.DateTimeField(blank=False, null=False)
-    entrada = models.DateTimeField(blank=False, null=False)
+    data = models.DateTimeField(blank=True, null=True)
+    entrada = models.DateTimeField(blank=True, null=True)
     saidaIntervalo = models.DateTimeField(blank=True, null=True)
     entradaIntervalo = models.DateTimeField(blank=True, null=True)
     saida = models.DateTimeField(blank=True, null=True)
