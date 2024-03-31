@@ -5,6 +5,9 @@ from django import forms
 
 
 class fPontoForm(ModelForm):
+
+    # submitFantasma = forms.CharField(widget=forms.HiddenInput())
+
     class Meta:
         model = fPonto
         fields = ['idColaborador', 
@@ -17,20 +20,17 @@ class fPontoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['idColaborador'].queryset = dColaboradores.objects.all()
+
         self.fields['data'].widget = forms.DateTimeInput(attrs={'name' : 'idColaborador'})
 
         self.fields['data'].initial = timezone.now()
-        self.fields['data'].widget = forms.DateTimeInput(attrs={'type' : 'datetime', 'readonly': True, 'name' : 'data'})
+        self.fields['data'].widget = forms.DateTimeInput(attrs={'type' : 'datetime', 'readonly': True, 'name' : 'data', 'id': 'labelForm'})
 
-        self.fields['entrada'].initial = timezone.now()
-        self.fields['entrada'].widget = forms.DateTimeInput(attrs={'type': 'datetime', 'readonly': True})
+        self.fields['entrada'].widget = forms.DateTimeInput(attrs={'type': 'datetime', 'readonly': True, 'id': 'labelForm'})
 
-        self.fields['saidaIntervalo'].initial = timezone.now()
-        self.fields['saidaIntervalo'].widget = forms.DateTimeInput(attrs={'type': 'datetime', 'readonly': True})
+        self.fields['saidaIntervalo'].widget = forms.DateTimeInput(attrs={'type': 'datetime', 'readonly': True, 'id': 'labelForm'})
 
-        self.fields['entradaIntervalo'].initial = timezone.now()
-        self.fields['entradaIntervalo'].widget = forms.DateTimeInput(attrs={'type': 'datetime','readonly': True})
+        self.fields['entradaIntervalo'].widget = forms.DateTimeInput(attrs={'type': 'datetime','readonly': True, 'id': 'labelForm'})
 
-        self.fields['saida'].initial = timezone.now()
-        self.fields['saida'].widget = forms.DateTimeInput(attrs={'type': 'datetime', 'readonly': True})
+        self.fields['saida'].widget = forms.DateTimeInput(attrs={'type': 'datetime', 'readonly': True, 'id': 'labelForm'})
 

@@ -4,7 +4,20 @@
     <h1>Marcar Ponto</h1>
     <form method="POST">
         {% csrf_token %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         {{ ponto_form.as_p }}
-        <button type="submit">Marcar</button>
+        <button type="submit" name="action" value="entrada">Marcar entrada</button>
+
+        <button type="submit" name="action" value="saidaIntervalo">Marcar Saida para Intervalo</button>
+
+        <button type="submit" name="action" value="entradaIntervalo">Marcar Volta do Intervalo</button>
+
+        <button type="submit" name="action" value="saida">Marcar Saida</button>
     </form>
 {% endblock %}
