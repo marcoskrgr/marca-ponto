@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Corrigir pontos</h1>
+    <form method="POST">
+
+        {% csrf_token %}
+        
+        <input type="text" disabled value="{{ colaborador.Nome }}">
+        <input type="text" disabled value="{{ data }}">
+        <select name="dropdownPonto" id="">
+            <option value="entrada">Entrada</option>
+            <option value="saidaIntervalo">Saida Intervalo</option>
+            <option value="entradaIntervalo">Entrada Intervalo</option>
+            <option value="saida">Saida</option>
+        </select>
+
+        <select name="hora" id="hora">
+            {% for hora in horas %}
+                <option value="{{ hora }}">{{ hora }}</option>
+            {% endfor %}
+        </select> 
+
+
+        <select name="minuto" id="minuto">
+            {% for minuto in minutos %}
+                <option value="{{ minuto }}">{{ minuto }}</option>
+            {% endfor %}
+        </select> 
+
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}

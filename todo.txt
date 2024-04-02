@@ -1,1 +1,4 @@
-1. Mudar o layout do ponto e a forma de bater
+1. Mudar o layout do ponto e a forma de bater --FEITO
+2. Botao corrigir trazendo aba ou algo do tipo
+3. Marcar correcao na tabela do fPonto
+4. Marcar correcao na tabela fPontoCorrecao
