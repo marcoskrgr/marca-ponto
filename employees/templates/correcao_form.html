@@ -2,6 +2,13 @@
 
 {% block content %}
     <h1>Corrigir pontos</h1>
+
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    
     <form method="POST">
 
         {% csrf_token %}

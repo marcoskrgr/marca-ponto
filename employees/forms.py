@@ -5,9 +5,6 @@ from django import forms
 
 
 class fPontoForm(ModelForm):
-
-    # submitFantasma = forms.CharField(widget=forms.HiddenInput())
-
     class Meta:
         model = fPonto
         fields = ['idColaborador', 
