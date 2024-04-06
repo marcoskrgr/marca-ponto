@@ -5,7 +5,6 @@ from employees.forms import fPontoForm
 from django.contrib import messages
 from django.utils import timezone
 from django.utils.dateparse import parse_date
-from django.utils.timezone import make_naive, is_aware, is_naive, make_aware
 
 #Função para verificar se ja existe a data inserida para o colaborador inserido
 def verificaData(ponto, colaborador, data):
@@ -38,7 +37,7 @@ def ponto_form(request):
       # Verificar qual botão foi clicado
       action = request.POST.get('action')
 
-       # Verifica se o campo correspondente já está preenchido
+      # Verifica se o campo correspondente já está preenchido
       if action == 'entrada' and ponto.entrada:
         messages.error(request, "O ponto de entrada já foi preenchido para este colaborador nesta data.")
       elif action == 'saidaIntervalo' and ponto.saidaIntervalo:
