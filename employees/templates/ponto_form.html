@@ -2,27 +2,59 @@
 
 {% block content %}
     <h1>Marcar Ponto</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {{ ponto_form.as_p }}
-        <button type="submit" name="action" value="entrada">Marcar entrada</button>
 
-        <button type="submit" name="action" value="saidaIntervalo">Marcar Saida para Intervalo</button>
+    <div class="container">
+        <div class="form-container">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            
+            <form method="POST">
+                {% csrf_token %}
+                {{ ponto_form.as_p }}
+                
+                <button class="btn btn-entrada" type="submit" name="action" value="entrada">Marcar entrada</button>
+                <button class="btn btn-saida-intervalo" type="submit" name="action" value="saidaIntervalo">Marcar Saída para Intervalo</button>
+                <button class="btn btn-entrada-intervalo" type="submit" name="action" value="entradaIntervalo">Marcar Volta do Intervalo</button>
+                <button class="btn btn-saida" type="submit" name="action" value="saida">Marcar Saída</button>
+                <br><br>
+                <button class="btn btn-corrigir" type="submit" name="action" value="corrigir">Corrigir</button>
+                <button class="btn btn-buscar-pontos" type="submit" name="btn_buscar_pontos">Buscar Pontos</button>
+            </form>
+        </div>
 
-        <button type="submit" name="action" value="entradaIntervalo">Marcar Volta do Intervalo</button>
-
-        <button type="submit" name="action" value="saida">Marcar Saida</button>
-
-        <br><br>
-
-        <button type="submit" name="action" value="corrigir">Corrigir</button>
-
-    </form>
+        <div class="table-container">
+            {% if pontos_do_colaborador %}
+                <h2>Pontos Marcados</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Entrada</th>
+                                <th>Saída Intervalo</th>
+                                <th>Entrada Intervalo</th>
+                                <th>Saída</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ponto in pontos_do_colaborador %}
+                                <tr>
+                                    <td>{{ ponto.data }}</td>
+                                    <td>{{ ponto.entrada }}</td>
+                                    <td>{{ ponto.saidaIntervalo }}</td>
+                                    <td>{{ ponto.entradaIntervalo }}</td>
+                                    <td>{{ ponto.saida }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

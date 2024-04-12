@@ -6,21 +6,22 @@
   <title>{% block title %}{% endblock %}</title>
   <style>
     body {
-        font-family: 'Open Sans', sans-serif;
-        display: flex;
-        flex-direction: column;
-        background-color: #f7f7f7;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        height: 90vh;
-        width: 100%;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-color: #f7f7f7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      height: 90vh;
+      width: 100%;
     }
 
     header {
-        background-color: #0096c7;
-        color: #fff;
-        text-align: center;
+      background-color: #0a3d62;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
     }
 
     footer {
@@ -35,15 +36,40 @@
     }
 
     main {
-        height: 80vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      height: 80vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-     /* Estilo para mensagens*/
+    /* NavBar */
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    nav ul li a:hover {
+      background-color: #007399;
+    }
+
+    /* Estilo para mensagens*/
     .messages {
       list-style: none;
       padding: 10px;
@@ -54,7 +80,10 @@
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 5px;
-      position: fixed;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .success {
@@ -69,11 +98,134 @@
       color: #ff3333;
     }
 
+    /* Estilos para a tabela */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+    }
+
+    .table th, .table td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Listras alternadas */
+    .table-striped tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+
+    /* Tabela responsiva */
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    /* Estilo para cabeçalho */
+    .table th {
+      background-color: #343a40;
+      color: #fff;
+    }
+
+    /* Estilo para células de dados */
+    .table td {
+      background-color: #fff;
+    }
+
+    /* Hover nas linhas */
+    .table tbody tr:hover {
+      background-color: #e9ecef;
+    }
+
+    /* Linhas divisoras entre as colunas */
+    .table th:not(:last-child),
+    .table td:not(:last-child) {
+      border-right: 1px solid #ddd;
+    }
+
+    /* Oculta a primeira coluna (data) */
+    .table td:first-child,
+    .table th:first-child {
+      display: none;
+    }
+
+
+    /* Estilos para os labels */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333; /* Cor do texto */
+    }
+    
+    /* Estilos para os inputs */
+    input[type="text"],
+    input[type="datetime-local"],
+    input[type="datetime"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc; /* Cor da borda */
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    /* Estilos para os botões */
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+    
+    .btn-entrada {
+      background-color: #4CAF50; /* Verde */
+      color: white;
+    }
+
+    .btn-enviar {
+      background-color: #4CAF50; /* Verde */
+      color: white;
+    }
+    
+    .btn-saida-intervalo {
+      background-color: #f44336; /* Vermelho */
+      color: white;
+    }
+  
+    .btn-entrada-intervalo {
+      background-color: #2196F3; /* Azul */
+      color: white;
+    }
+    
+    .btn-saida {
+      background-color: #FF9800; /* Laranja */
+      color: white;
+    }
+    
+    .btn-corrigir {
+      background-color: #555555; /* Cinza */
+      color: white;
+    }
+  
+    .btn-buscar-pontos {
+      background-color: #800080; /* Roxo */
+      color: white;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>TESTE</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'ponto_form' %}">Página do ponto</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -82,7 +234,7 @@
   </main>
 
   <footer>
-    <p>&copy; marcaaqui</p>
+    <p>&copy; CoeSistemas</p>
   </footer>
 </body>
 </html>

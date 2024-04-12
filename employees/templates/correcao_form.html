@@ -21,20 +21,20 @@
             <option value="entradaIntervalo">Entrada Intervalo</option>
             <option value="saida">Saida</option>
         </select>
-
+        <p>Hora</p>
         <select name="hora" id="hora">
             {% for hora in horas %}
                 <option value="{{ hora }}">{{ hora }}</option>
             {% endfor %}
         </select> 
 
-
+        <p>Minuto</p>
         <select name="minuto" id="minuto">
             {% for minuto in minutos %}
                 <option value="{{ minuto }}">{{ minuto }}</option>
             {% endfor %}
         </select> 
 
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn btn-enviar">Enviar</button>
     </form>
 {% endblock %}
